@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:16
+    container_name: sdu-score-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-sdu}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sdu}
+      POSTGRES_DB: ${POSTGRES_DB:-sdu_score}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/create-test-db.sql:/docker-entrypoint-initdb.d/create-test-db.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-sdu} -d ${POSTGRES_DB:-sdu_score}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  pgdata:

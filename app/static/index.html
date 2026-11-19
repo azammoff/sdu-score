@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SDU Score</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
+  <link rel="stylesheet" href="/static/app.css?v=2">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#/"><span class="brand-ball">⚽</span> SDU <b>Score</b></a>
+    <nav class="topnav">
+      <a href="#/">Главная</a>
+      <a href="#/tournaments">Турниры</a>
+      <a href="#/teams">Команды</a>
+    </nav>
+    <div class="search">
+      <input id="search" type="search" placeholder="Поиск команды или игрока…" autocomplete="off">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="side-title">Турниры</div>
+      <div id="side-tournaments" class="side-list"><div class="muted pad">Загрузка…</div></div>
+    </aside>
+    <main id="view" class="view"><div class="muted pad">Загрузка…</div></main>
+  </div>
+
+  <footer class="footer">SDU Score · данные из канала SDU Football Association · <a href="/docs">API</a></footer>
+  <script src="/static/app.js?v=2"></script>
+</body>
+</html>
